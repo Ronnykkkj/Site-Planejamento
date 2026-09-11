@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EngeMax — Construtora e Engenharia | Tucuruí-PA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple-900:#241A47;
+    --purple-800:#2C1E63;
+    --purple-700:#372581;
+    --purple-100:#EFEBFA;
+    --orange:#F5821F;
+    --orange-2:#DD6D0E;
+    --cyan:#29B6E8;
+    --cyan-2:#1C9BC9;
+    --bg:#F7F6FB;
+    --white:#FFFFFF;
+    --ink:#241A47;
+    --ink-soft:#615B7D;
+    --line:#E7E3F3;
+    --radius:18px;
+    --maxw:1160px;
+    --shadow:0 14px 34px -18px rgba(36,26,71,0.28);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Inter", sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:"Montserrat", sans-serif;
+    margin:0;
+    line-height:1.12;
+    letter-spacing:-0.01em;
+    color:var(--purple-900);
+  }
+  .mono{font-family:"IBM Plex Mono", monospace;}
+  p{margin:0 0 1em 0;}
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  section{position:relative;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  .card{
+    background:var(--white);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    border:1px solid var(--line);
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{
+    max-width:var(--maxw); margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
+  }
+  .brand{display:flex; align-items:center; gap:11px; text-decoration:none;}
+  .brand-mark{width:32px;height:34px;}
+  .brand-name{font-family:"Montserrat"; font-weight:800; font-size:1.15rem; letter-spacing:0.01em; color:var(--purple-900);}
+  .navlinks{display:flex; align-items:center; gap:0; flex-wrap:wrap;}
+  .navlinks a{
+    color:var(--ink-soft); text-decoration:none; font-size:0.86rem; font-weight:600;
+    padding:8px 12px; border-radius:20px;
+    transition:color .15s, background .15s;
+    white-space:nowrap;
+  }
+  .navlinks a:hover{color:var(--purple-900); background:var(--purple-100);}
+  .navlinks a.active{color:var(--white); background:var(--orange);}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--bg); overflow:hidden;}
+  .hero-panel{
+    position:relative;
+    background:linear-gradient(120deg, var(--purple-700) 0%, var(--purple-900) 75%);
+    clip-path:polygon(0 0, 100% 0, 100% 76%, 0 100%);
+    padding:60px 0 150px;
+    overflow:hidden;
+  }
+  .hero-panel-deco{position:absolute; top:-40px; right:-40px; width:340px; opacity:0.5; transform:rotate(8deg);}
+  .hero-panel-in{
+    max-width:var(--maxw); margin:0 auto; padding:0 28px;
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:20px; align-items:center; position:relative; z-index:2;
+  }
+  .hero-tag{
+    font-family:"IBM Plex Mono"; font-size:0.76rem; color:var(--cyan);
+    margin-bottom:14px; letter-spacing:0.04em;
+  }
+  .hero h1{
+    font-size:clamp(1rem,2.6vw,1.7rem);
+    color:#EFEBFA; font-weight:600; margin-bottom:2px;
+  }
+  .hero-word{
+    font-family:"Montserrat"; font-weight:900; font-size:clamp(2.6rem,6.4vw,4.3rem);
+    color:#fff; letter-spacing:-0.01em; line-height:1;
+  }
+  .hero-word .a{color:var(--orange);}
+  .hero-word .x{color:var(--cyan);}
+  .hero-rule{display:flex; gap:6px; margin-top:20px;}
+  .hero-rule span{height:5px; width:64px; border-radius:4px;}
+  .hero-rule .r1{background:var(--orange);}
+  .hero-rule .r2{background:var(--purple-100);}
+  .hero-rule .r3{background:var(--cyan);}
+  .hero-art{align-self:end; position:relative;}
+
+  .hero-lower{padding:44px 0 66px;}
+  .hero-lower-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:20px; align-items:start;}
+  .hero-desc p{color:var(--ink-soft); font-size:1.03rem; max-width:56ch;}
+  .hero-desc strong{color:var(--ink);}
+  .hi-orange{color:var(--orange-2); font-weight:700;}
+  .hi-cyan{color:var(--cyan-2); font-weight:700;}
+  .hi-under{border-bottom:3px solid var(--orange); padding-bottom:1px;}
+  .hero-cta{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap; align-items:center;}
+  .btn{
+    display:inline-block; padding:13px 24px; font-size:0.92rem; font-weight:700;
+    text-decoration:none; border-radius:30px; border:1.5px solid transparent;
+    font-family:"Inter";
+  }
+  .btn-solid{background:var(--orange); color:#fff;}
+  .btn-solid:hover{background:var(--orange-2);}
+  .btn-outline{border-color:var(--purple-700); color:var(--purple-800);}
+  .btn-outline:hover{background:var(--purple-100);}
+  .pill{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--purple-900); color:#fff; border-radius:40px;
+    padding:12px 22px 12px 14px; font-size:0.94rem; margin-top:28px;
+  }
+  .pill .rb{width:22px;height:26px;}
+  .pill strong{color:var(--cyan); font-weight:800;}
+  .hero-meta{display:flex; gap:30px; margin-top:30px; flex-wrap:wrap;}
+  .hero-meta div{border-left:3px solid var(--cyan); padding-left:12px;}
+  .hero-meta .mono{display:block; font-size:0.7rem; color:var(--ink-soft); margin-bottom:3px;}
+  .hero-meta strong{font-size:0.94rem; color:var(--ink); font-weight:700;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .sec{padding:84px 0;}
+  .sec-alt{background:var(--white);}
+  .sec-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px; margin-bottom:44px; flex-wrap:wrap;
+  }
+  .sec-head .code{
+    font-family:"Montserrat"; font-weight:800; font-size:0.76rem; color:var(--orange-2);
+    margin-bottom:8px; display:block; letter-spacing:0.06em; text-transform:uppercase;
+  }
+  .sec-head h2{font-size:clamp(1.7rem,3vw,2.35rem);}
+  .sec-head p{max-width:44ch; color:var(--ink-soft); margin:10px 0 0 0; font-size:0.96rem;}
+  .sec-note{max-width:40ch; text-align:right; font-size:0.86rem; color:var(--ink-soft);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:44px; align-items:start;}
+  .about-grid p{color:var(--ink-soft); font-size:1.01rem;}
+  .mvv{display:flex; flex-direction:column; gap:14px;}
+  .mvv-item{padding:20px 22px; border-top:4px solid var(--orange);}
+  .mvv-item:nth-child(2){border-top-color:var(--purple-700);}
+  .mvv-item:nth-child(3){border-top-color:var(--cyan);}
+  .mvv-item h4{font-size:0.86rem; color:var(--purple-900); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.04em;}
+  .mvv-item p{margin:0; font-size:0.9rem; color:var(--ink-soft);}
+  .tag-row{display:flex; gap:8px; flex-wrap:wrap; margin-top:18px;}
+  .tag{
+    font-family:"Inter"; font-weight:600; font-size:0.76rem; color:var(--purple-800);
+    background:var(--purple-100); padding:6px 13px; border-radius:20px;
+  }
+
+  /* ---------- TEAM ---------- */
+  .org{display:flex; flex-direction:column; align-items:center; margin-bottom:52px;}
+  .org-top{padding:16px 30px; text-align:center; border-radius:40px; background:var(--purple-900); color:#fff;}
+  .org-top .mono{font-size:0.7rem; color:var(--cyan); display:block; margin-bottom:4px; font-family:"Inter"; font-weight:700; letter-spacing:0.05em; text-transform:uppercase;}
+  .org-top strong{font-family:"Montserrat"; font-weight:800; font-size:1.05rem; color:#fff;}
+  .org-stem{width:2px; height:26px; background:var(--line);}
+  .org-branch{width:80%; max-width:760px; height:2px; background:var(--line); margin-bottom:30px;}
+  .team-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
+  .team-card{padding:22px 18px; display:flex; flex-direction:column; gap:8px;}
+  .icon-badge{width:44px;height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:6px;}
+  .icon-badge svg{width:24px;height:24px; color:#fff;}
+  .bg-p{background:var(--purple-800);}
+  .bg-o{background:var(--orange);}
+  .bg-c{background:var(--cyan);}
+  .team-card h4{font-size:0.98rem; color:var(--purple-900);}
+  .team-card .role{font-size:0.8rem; color:var(--orange-2); font-weight:700;}
+  .team-card .crea{font-family:"IBM Plex Mono"; font-size:0.68rem; color:var(--ink-soft);}
+  .team-card .desc{font-size:0.82rem; color:var(--ink-soft); margin-top:4px;}
+  .headcount{
+    margin-top:46px; padding:30px 32px;
+    display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:center;
+  }
+  .headcount-num{font-family:"Montserrat"; font-weight:900; font-size:3.2rem; color:var(--purple-900); line-height:1;}
+  .headcount-num span{font-size:1.1rem; color:var(--ink-soft); font-weight:600; font-family:"Inter";}
+  .hc-bars{display:flex; flex-direction:column; gap:10px;}
+  .hc-row{display:grid; grid-template-columns:150px 1fr 26px; align-items:center; gap:10px; font-size:0.82rem;}
+  .hc-track{height:9px; background:var(--purple-100); border-radius:6px;}
+  .hc-fill{height:100%; background:linear-gradient(90deg, var(--purple-700), var(--cyan)); border-radius:6px;}
+
+  /* ---------- SERVICES ---------- */
+  .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .svc-card{padding:26px 22px;}
+  .svc-card h4{font-size:1.02rem; color:var(--purple-900); margin-bottom:8px;}
+  .svc-card p{font-size:0.88rem; color:var(--ink-soft); margin-bottom:0;}
+  .svc-card .how{font-family:"Inter"; font-weight:700; font-size:0.68rem; color:var(--orange-2); display:block; margin-top:12px; text-transform:uppercase; letter-spacing:0.03em;}
+
+  .out-table{margin-top:56px;}
+  .out-table h3{font-size:1.15rem; color:var(--purple-900); margin-bottom:16px;}
+  .table-wrap{background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid var(--line); overflow:hidden;}
+  table{width:100%; border-collapse:collapse; font-size:0.86rem;}
+  th{
+    text-align:left; font-family:"Inter"; font-weight:700; font-size:0.72rem;
+    color:var(--purple-800); text-transform:uppercase; letter-spacing:0.03em;
+    padding:14px 18px; background:var(--purple-100); border-bottom:1px solid var(--line);
+  }
+  td{padding:13px 18px; border-bottom:1px solid var(--line); color:var(--ink-soft); vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  td strong{color:var(--ink); font-weight:700;}
+
+  /* ---------- PROCESS TIMELINE ---------- */
+  .timeline{display:flex; flex-direction:column; margin-top:10px;}
+  .tl-item{
+    display:grid; grid-template-columns:52px 1fr; gap:20px; padding:20px 0;
+    border-top:1px solid var(--line);
+  }
+  .tl-item:last-child{border-bottom:1px solid var(--line);}
+  .tl-num{
+    width:38px;height:38px; border-radius:50%; background:var(--orange); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:"Montserrat"; font-weight:800; font-size:0.85rem;
+  }
+  .tl-body h4{font-size:1rem; color:var(--purple-900); margin-bottom:5px;}
+  .tl-body p{font-size:0.88rem; color:var(--ink-soft); margin:0;}
+
+  /* ---------- MANAGEMENT / STRATEGY ---------- */
+  .strategy-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  .strat-card{padding:20px 22px; display:flex; gap:16px; align-items:flex-start;}
+  .strat-card .icon-badge{margin-bottom:0; flex-shrink:0;}
+  .strat-card h4{font-size:0.95rem; color:var(--purple-900); margin-bottom:6px;}
+  .strat-card p{font-size:0.85rem; color:var(--ink-soft); margin:0;}
+
+  .kpi-wrap{margin-top:56px;}
+  .kpi-wrap h3{font-size:1.15rem; color:var(--purple-900); margin-bottom:16px;}
+  .kpi-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .kpi-card{padding:22px 18px; text-align:left; border-top:4px solid var(--cyan);}
+  .kpi-card:nth-child(2n){border-top-color:var(--orange);}
+  .kpi-card:nth-child(3n){border-top-color:var(--purple-700);}
+  .kpi-card .val{font-family:"Montserrat"; font-weight:900; font-size:1.8rem; color:var(--purple-900);}
+  .kpi-card .lab{font-size:0.78rem; color:var(--ink-soft); margin-top:4px;}
+
+  /* ---------- IMPLANTATION / BUDGET ---------- */
+  .impl-grid{display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:start;}
+  .budget-item{display:grid; grid-template-columns:150px 1fr auto; align-items:center; gap:12px; margin-bottom:14px; font-size:0.85rem;}
+  .budget-track{height:16px; background:var(--purple-100); border-radius:10px; position:relative; overflow:hidden;}
+  .budget-fill{height:100%; background:linear-gradient(90deg, var(--purple-700), var(--cyan)); border-radius:10px;}
+  .budget-val{font-family:"IBM Plex Mono"; font-size:0.76rem; color:var(--ink-soft); text-align:right;}
+  .budget-total{
+    display:flex; justify-content:space-between; margin-top:18px; padding-top:16px;
+    border-top:2px solid var(--purple-900); font-family:"Montserrat"; font-weight:800; color:var(--purple-900);
+  }
+  .phase-list{display:flex; flex-direction:column; gap:0;}
+  .phase{display:grid; grid-template-columns:90px 1fr; gap:16px; padding:18px 0; border-top:1px solid var(--line);}
+  .phase:last-child{border-bottom:1px solid var(--line);}
+  .phase .mono{font-size:0.74rem; color:var(--orange-2); font-weight:700;}
+  .phase h4{font-size:0.92rem; color:var(--purple-900); margin-bottom:4px;}
+  .phase p{font-size:0.85rem; color:var(--ink-soft); margin:0;}
+
+  /* ---------- DEMO PROJECTS ---------- */
+  .demo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .demo-card{padding:0; overflow:hidden;}
+  .demo-art{height:168px; width:100%;}
+  .demo-art svg{width:100%; height:100%;}
+  .demo-body{padding:18px 20px;}
+  .demo-body .mono{font-family:"Inter"; font-weight:700; font-size:0.66rem; color:var(--orange-2); display:block; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.04em;}
+  .demo-body h4{font-size:0.98rem; color:var(--purple-900); margin-bottom:5px;}
+  .demo-body p{font-size:0.84rem; color:var(--ink-soft); margin:0;}
+  .disclaimer{
+    margin-top:28px; padding:16px 20px; background:var(--purple-100);
+    border-left:4px solid var(--orange); border-radius:10px; font-size:0.84rem; color:var(--purple-800);
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  .contact{background:linear-gradient(120deg, var(--purple-800), var(--purple-900)); color:#D9D3EE; overflow:hidden; position:relative;}
+  .contact-deco{position:absolute; bottom:-30px; right:-20px; width:220px; opacity:0.55;}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; position:relative; z-index:2;}
+  .contact h2{color:#fff;}
+  .contact-list{list-style:none; padding:0; margin:20px 0 0 0; display:flex; flex-direction:column; gap:14px;}
+  .contact-list li{display:grid; grid-template-columns:100px 1fr; gap:12px; font-size:0.9rem;}
+  .contact-list .mono{color:var(--cyan); font-size:0.7rem; font-family:"Inter"; font-weight:700; text-transform:uppercase; letter-spacing:0.04em;}
+  .credits{padding:20px 22px; background:rgba(255,255,255,0.06); border-radius:var(--radius); font-size:0.85rem; position:relative; z-index:2;}
+  .credits h4{font-size:0.9rem; color:#fff; margin-bottom:10px;}
+  .credits ul{margin:0; padding-left:18px; color:#C7BFE3;}
+  .credits li{margin-bottom:4px;}
+  footer.legal{
+    border-top:1px solid rgba(255,255,255,0.14); padding:22px 0; font-size:0.78rem; color:#B4AAD6;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; position:relative; z-index:2;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 880px){
+    .hero-panel-in, .hero-lower-grid{grid-template-columns:1fr;}
+    .hero-art{order:-1; max-width:220px; margin:0 auto;}
+    .about-grid, .impl-grid, .contact-grid{grid-template-columns:1fr;}
+    .team-grid{grid-template-columns:repeat(2,1fr);}
+    .svc-grid{grid-template-columns:1fr 1fr;}
+    .strategy-grid{grid-template-columns:1fr;}
+    .kpi-grid{grid-template-columns:1fr 1fr;}
+    .demo-grid{grid-template-columns:1fr;}
+    .headcount{grid-template-columns:1fr;}
+    .navlinks{display:none;}
+  }
+  @media (max-width: 560px){
+    .team-grid{grid-template-columns:1fr;}
+    .svc-grid{grid-template-columns:1fr;}
+    .kpi-grid{grid-template-columns:1fr 1fr;}
+    .sec{padding:56px 0;}
+    .hero-panel{padding-bottom:110px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ ICON SPRITE (ilustrações originais em linha) ============ -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="ic-building" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="10" y="14" width="28" height="30"/>
+      <line x1="10" y1="22" x2="38" y2="22"/>
+      <line x1="10" y1="30" x2="38" y2="30"/>
+      <line x1="18" y1="14" x2="18" y2="44"/>
+      <line x1="28" y1="14" x2="28" y2="44"/>
+      <rect x="21" y="34" width="6" height="10"/>
+    </g>
+    <g id="ic-reform" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M30 10 L38 18 L22 34 L14 34 L14 26 Z"/>
+      <line x1="14" y1="34" x2="10" y2="38"/>
+      <line x1="26" y1="18" x2="30" y2="22"/>
+    </g>
+    <g id="ic-ruler" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 38 L24 10 L40 38 Z"/>
+      <line x1="16" y1="34" x2="19" y2="29"/>
+      <line x1="21" y1="30" x2="24" y2="25"/>
+      <line x1="26" y1="26" x2="29" y2="21"/>
+    </g>
+    <g id="ic-compass" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="24" cy="12" r="3"/>
+      <line x1="22" y1="15" x2="12" y2="38"/>
+      <line x1="26" y1="15" x2="34" y2="34"/>
+      <line x1="9" y1="40" x2="17" y2="40"/>
+      <circle cx="34" cy="36" r="1.6" fill="currentColor"/>
+    </g>
+    <g id="ic-calc" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="12" y="8" width="24" height="32" rx="1"/>
+      <rect x="16" y="12" width="16" height="7"/>
+      <line x1="17" y1="25" x2="17" y2="25.2"/>
+      <line x1="24" y1="25" x2="24" y2="25.2"/>
+      <line x1="31" y1="25" x2="31" y2="25.2"/>
+      <line x1="17" y1="31" x2="17" y2="31.2"/>
+      <line x1="24" y1="31" x2="24" y2="31.2"/>
+      <line x1="31" y1="31" x2="31" y2="31.2"/>
+      <line x1="17" y1="36" x2="17" y2="36.2"/>
+      <line x1="24" y1="36" x2="24" y2="36.2"/>
+      <line x1="31" y1="36" x2="31" y2="36.2"/>
+    </g>
+    <g id="ic-calendar" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="8" y="12" width="32" height="28" rx="1"/>
+      <line x1="8" y1="20" x2="40" y2="20"/>
+      <line x1="15" y1="8" x2="15" y2="16"/>
+      <line x1="33" y1="8" x2="33" y2="16"/>
+      <line x1="15" y1="27" x2="21" y2="27"/>
+      <line x1="15" y1="33" x2="26" y2="33"/>
+    </g>
+    <g id="ic-gauge" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 32 A16 16 0 0 1 40 32"/>
+      <line x1="24" y1="30" x2="32" y2="20"/>
+      <circle cx="24" cy="30" r="2" fill="currentColor"/>
+      <line x1="8" y1="36" x2="40" y2="36"/>
+    </g>
+    <g id="ic-shield" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 6 L38 12 V24 C38 33 32 39 24 42 C16 39 10 33 10 24 V12 Z"/>
+      <path d="M17 23 L22 28 L32 17"/>
+    </g>
+    <g id="ic-leaf" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 38 C10 22 22 10 38 10 C38 26 26 38 12 38 Z"/>
+      <path d="M13 37 C20 30 27 23 37 12"/>
+    </g>
+    <g id="ic-people" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="17" cy="16" r="5"/>
+      <circle cx="32" cy="18" r="4.2"/>
+      <path d="M8 38 C8 29 12 25 17 25 C22 25 26 29 26 38"/>
+      <path d="M26 33 C26 28 29 25 32.5 25 C37 25 40 29 40 36"/>
+    </g>
+    <g id="ic-coin" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="24" cy="24" r="15"/>
+      <line x1="24" y1="15" x2="24" y2="33"/>
+      <path d="M28 18 C24 16 19 17 19 21 C19 25 29 23 29 27 C29 31 24 32 20 30"/>
+    </g>
+    <g id="ic-doc" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 6 H28 L34 12 V42 H14 Z"/>
+      <path d="M28 6 V12 H34"/>
+      <line x1="18" y1="20" x2="30" y2="20"/>
+      <line x1="18" y1="26" x2="30" y2="26"/>
+      <line x1="18" y1="32" x2="25" y2="32"/>
+    </g>
+
+    <!-- fita/ribbon da marca EngeMax, reutilizada no logo, hero e rodapé -->
+    <path id="ic-ribbon" d="M0 0 H36 L28 13 L36 26 H0 Z"/>
+  </defs>
+</svg>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#inicio">
+      <svg class="brand-mark" viewBox="0 0 46 54">
+        <use href="#ic-ribbon" fill="#372581" transform="translate(0,0) scale(0.72)"/>
+        <use href="#ic-ribbon" fill="#F5821F" transform="translate(9,16) scale(0.72)"/>
+        <use href="#ic-ribbon" fill="#29B6E8" transform="translate(18,32) scale(0.72)"/>
+      </svg>
+      <span class="brand-name">ENGEMAX</span>
+    </a>
+    <div class="navlinks" id="navlinks">
+      <a href="#inicio">Início</a>
+      <a href="#construtora">A construtora</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#processo">Como trabalhamos</a>
+      <a href="#gestao">Gestão</a>
+      <a href="#implantacao">Implantação</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="inicio">
+  <div class="hero-panel">
+    <svg class="hero-panel-deco" viewBox="0 0 46 54">
+      <use href="#ic-ribbon" fill="#F5821F" transform="translate(0,0)"/>
+      <use href="#ic-ribbon" fill="#5A3FA6" transform="translate(9,16)"/>
+      <use href="#ic-ribbon" fill="#29B6E8" transform="translate(18,32)"/>
+    </svg>
+    <div class="hero-panel-in">
+      <div class="hero-art">
+        <!-- ilustração plana original: engenheiro de capacete e rádio -->
+        <svg viewBox="0 0 260 300" width="100%">
+          <ellipse cx="130" cy="270" rx="95" ry="18" fill="#1B1240" opacity="0.25"/>
+          <circle cx="150" cy="150" r="118" fill="#29B6E8" opacity="0.16"/>
+          <!-- pernas -->
+          <path d="M95 190 L92 268 L128 268 L134 195 Z" fill="#1B1440"/>
+          <path d="M150 195 L156 268 L192 268 L182 190 Z" fill="#1B1440"/>
+          <!-- tronco / colete -->
+          <path d="M84 120 C84 100 105 88 138 88 C171 88 188 102 190 122 L184 196 L92 196 Z" fill="#F5821F"/>
+          <path d="M118 96 L138 190 L158 96" fill="none" stroke="#DD6D0E" stroke-width="3"/>
+          <rect x="86" y="118" width="12" height="46" rx="4" fill="#DD6D0E"/>
+          <rect x="176" y="118" width="12" height="46" rx="4" fill="#DD6D0E"/>
+          <!-- braço levantado com radio -->
+          <path d="M172 108 C190 100 200 84 198 66" fill="none" stroke="#F5821F" stroke-width="20" stroke-linecap="round"/>
+          <rect x="188" y="40" width="16" height="34" rx="4" transform="rotate(18 196 57)" fill="#241A47"/>
+          <circle cx="197" cy="44" r="2.4" fill="#29B6E8"/>
+          <!-- cabeça -->
+          <circle cx="140" cy="70" r="30" fill="#D9A579"/>
+          <path d="M112 66 C112 50 124 40 140 40 C156 40 168 50 168 66 L168 60 C150 60 130 60 112 60 Z" fill="#241A47"/>
+          <!-- capacete -->
+          <path d="M104 56 C104 34 120 22 140 22 C160 22 176 34 176 56 Z" fill="#FFFFFF" stroke="#DD6D0E" stroke-width="2.5"/>
+          <rect x="100" y="54" width="80" height="9" rx="4" fill="#F5821F"/>
+          <!-- oculos -->
+          <circle cx="125" cy="74" r="8" fill="none" stroke="#241A47" stroke-width="2.5"/>
+          <circle cx="150" cy="74" r="8" fill="none" stroke="#241A47" stroke-width="2.5"/>
+          <line x1="133" y1="74" x2="142" y2="74" stroke="#241A47" stroke-width="2.5"/>
+        </svg>
+      </div>
+      <div>
+        <span class="hero-tag mono">TUCURUÍ &middot; PARÁ &middot; CONSTRUÇÃO CIVIL</span>
+        <h1>Olá, nós somos a</h1>
+        <div class="hero-word">ENGEM<span class="a">A</span><span class="x">X</span></div>
+        <div class="hero-rule"><span class="r1"></span><span class="r2"></span><span class="r3"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap hero-lower">
+    <div class="hero-lower-grid">
+      <div></div>
+      <div class="hero-desc">
+        <p>Uma construtora focada em oferecer soluções completas em <strong class="hi-orange">engenharia e construção</strong>, com equipe própria e parceiros especializados para projetos, obras e gerenciamento de empreendimentos residenciais e comerciais.</p>
+        <p>Atuamos do primeiro contato à entrega, com <strong class="hi-orange">qualidade</strong>, <strong class="hi-cyan">segurança</strong> e <strong>compromisso</strong> com o prazo, sempre buscando superar as expectativas dos nossos clientes.</p>
+        <p>Com equipe qualificada e uso de tecnologia como a modelagem BIM, construímos hoje o <span class="hi-under"><strong>futuro que você imagina</strong></span>.</p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#servicos">Ver serviços</a>
+          <a class="btn btn-outline" href="#contato">Falar com a equipe</a>
+        </div>
+        <div class="pill">
+          <svg class="rb" viewBox="0 0 46 54">
+            <use href="#ic-ribbon" fill="#F5821F" transform="translate(0,0) scale(0.55)"/>
+            <use href="#ic-ribbon" fill="#8B7BC7" transform="translate(7,12) scale(0.55)"/>
+            <use href="#ic-ribbon" fill="#29B6E8" transform="translate(14,24) scale(0.55)"/>
+          </svg>
+          Juntos, construímos <strong>grandes projetos.</strong>
+        </div>
+        <div class="hero-meta">
+          <div><span class="mono">SEDE</span><strong>Tucuruí – PA</strong></div>
+          <div><span class="mono">EQUIPE PRÓPRIA</span><strong>25 colaboradores</strong></div>
+          <div><span class="mono">OBRAS SIMULTÂNEAS</span><strong>Até 2 de pequeno porte</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ A CONSTRUTORA ============ -->
+<section class="sec" id="construtora">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="code">01 — Apresentação</span>
+        <h2>A construtora</h2>
+      </div>
+      <p class="sec-note">Trabalho acadêmico elaborado para fins de estudo em gestão e engenharia.</p>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <p>A EngeMax é uma construtora sediada em Tucuruí, no Pará, especializada na construção, reforma e ampliação de imóveis residenciais e comerciais. A empresa também presta serviços de elaboração de projetos de engenharia, levantamento de quantitativos, orçamento, planejamento e gerenciamento de obras.</p>
+        <p>O cliente pode contratar um serviço isolado — como um projeto ou um orçamento — ou um pacote integrado, do desenvolvimento dos projetos até a entrega da construção. Para manter a qualidade das entregas, a empresa atua inicialmente com até duas obras de pequeno porte simultâneas, conforme a complexidade de cada uma e a capacidade das equipes.</p>
+        <p>O público-alvo é formado por famílias que desejam construir ou reformar, comerciantes e pequenos investidores imobiliários.</p>
+        <div class="tag-row">
+          <span class="tag">Construção residencial</span>
+          <span class="tag">Construção comercial</span>
+          <span class="tag">Reforma &amp; ampliação</span>
+          <span class="tag">Projetos &amp; orçamentos</span>
+          <span class="tag">Gerenciamento de obras</span>
+        </div>
+      </div>
+
+      <div class="mvv">
+        <div class="card mvv-item">
+          <h4>Missão</h4>
+          <p>Construir e desenvolver soluções de engenharia com qualidade, segurança e planejamento, oferecendo projetos, orçamentos e obras adequados às necessidades de cada cliente.</p>
+        </div>
+        <div class="card mvv-item">
+          <h4>Visão</h4>
+          <p>Ser reconhecida, em cinco anos, como uma construtora de referência em Tucuruí e região pela qualidade das entregas, transparência e organização.</p>
+        </div>
+        <div class="card mvv-item">
+          <h4>Valores</h4>
+          <p>Ética, transparência, segurança, qualidade, valorização dos trabalhadores, responsabilidade ambiental, inovação e compromisso com o cliente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EQUIPE ============ -->
+<section class="sec sec-alt" id="equipe">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="code">02 — Organograma</span>
+        <h2>Proprietário e responsáveis pelos setores</h2>
+      </div>
+      <p class="sec-note">Todos os integrantes são apresentados como engenheiros civis; o arquiteto parceiro é identificado por registro no CAU, não no CREA.</p>
+    </div>
+
+    <div class="org">
+      <div class="org-top">
+        <span class="mono">PROPRIETÁRIO E DIRETOR-GERAL</span>
+        <strong>Victor Tenório</strong>
+      </div>
+      <div class="org-stem"></div>
+      <div class="org-branch"></div>
+    </div>
+
+    <div class="team-grid">
+      <div class="card team-card">
+        <div class="icon-badge bg-p"><svg viewBox="0 0 48 48"><use href="#ic-ruler"/></svg></div>
+        <h4>Alex Italo</h4>
+        <span class="role">Gerente de projetos</span>
+        <span class="crea">CREA-PA 591847</span>
+        <p class="desc">Coordena os projetos de engenharia, compatibiliza as disciplinas e acompanha projetistas e arquiteto terceirizados.</p>
+      </div>
+      <div class="card team-card">
+        <div class="icon-badge bg-o"><svg viewBox="0 0 48 48"><use href="#ic-calc"/></svg></div>
+        <h4>Pedro Hora</h4>
+        <span class="role">Gerente de orçamentos e planejamento</span>
+        <span class="crea">CREA-PA 738195</span>
+        <p class="desc">Levanta quantitativos, elabora orçamentos e cronogramas físico-financeiros e acompanha custos.</p>
+      </div>
+      <div class="card team-card">
+        <div class="icon-badge bg-c"><svg viewBox="0 0 48 48"><use href="#ic-building"/></svg></div>
+        <h4>Ronald Oliveira</h4>
+        <span class="role">Gerente de obras</span>
+        <span class="crea">CREA-PA 426918</span>
+        <p class="desc">Coordena os canteiros, orienta os mestres de obras e acompanha execução, produtividade e prazos.</p>
+      </div>
+      <div class="card team-card">
+        <div class="icon-badge bg-p"><svg viewBox="0 0 48 48"><use href="#ic-people"/></svg></div>
+        <h4>Emily Garcia</h4>
+        <span class="role">Gerente administrativa, financeira e de RH</span>
+        <span class="crea">CREA-PA 963572</span>
+        <p class="desc">Gerencia pagamentos, fluxo de caixa, documentos e recrutamento, integração e acompanhamento da equipe.</p>
+      </div>
+      <div class="card team-card">
+        <div class="icon-badge bg-o"><svg viewBox="0 0 48 48"><use href="#ic-shield"/></svg></div>
+        <h4>Jhonatan Carvalho</h4>
+        <span class="role">Gerente de qualidade e suprimentos</span>
+        <span class="crea">CREA-PA 285634</span>
+        <p class="desc">Inspeciona materiais e serviços, avalia fornecedores e controla compras, estoques e desperdícios.</p>
+      </div>
+    </div>
+
+    <div class="card headcount">
+      <div>
+        <div class="headcount-num">25 <span>pessoas na equipe própria</span></div>
+        <p style="margin-top:10px; font-size:0.88rem; color:var(--ink-soft);">Victor Tenório como proprietário e 24 colaboradores, com contratação e mobilização graduais conforme os contratos de obras. Serviços especializados são atendidos por terceirizados, contratados à parte.</p>
+      </div>
+      <div class="hc-bars">
+        <div class="hc-row"><span>Gerentes</span><div class="hc-track"><div class="hc-fill" style="width:20%"></div></div><span class="mono">5</span></div>
+        <div class="hc-row"><span>Pedreiros</span><div class="hc-track"><div class="hc-fill" style="width:24%"></div></div><span class="mono">6</span></div>
+        <div class="hc-row"><span>Serventes</span><div class="hc-track"><div class="hc-fill" style="width:24%"></div></div><span class="mono">6</span></div>
+        <div class="hc-row"><span>Mestres de obras</span><div class="hc-track"><div class="hc-fill" style="width:8%"></div></div><span class="mono">2</span></div>
+        <div class="hc-row"><span>Técnicos e apoio</span><div class="hc-track"><div class="hc-fill" style="width:16%"></div></div><span class="mono">4</span></div>
+        <div class="hc-row"><span>Proprietário</span><div class="hc-track"><div class="hc-fill" style="width:4%"></div></div><span class="mono">1</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVIÇOS ============ -->
+<section class="sec" id="servicos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="code">03 — Catálogo</span>
+        <h2>Serviços oferecidos</h2>
+      </div>
+      <p class="sec-note">Da concepção do projeto à entrega da obra, com equipe própria e parceiros especializados por disciplina.</p>
+    </div>
+
+    <div class="svc-grid">
+      <div class="card svc-card">
+        <div class="icon-badge bg-p"><svg viewBox="0 0 48 48"><use href="#ic-building"/></svg></div>
+        <h4>Construção de imóveis</h4>
+        <p>Execução de residências e estabelecimentos comerciais do zero.</p>
+        <span class="how">Equipe própria + parceiros</span>
+      </div>
+      <div class="card svc-card">
+        <div class="icon-badge bg-o"><svg viewBox="0 0 48 48"><use href="#ic-reform"/></svg></div>
+        <h4>Reformas e ampliações</h4>
+        <p>Adequação e expansão de edificações já existentes.</p>
+        <span class="how">Equipe própria + apoio especializado</span>
+      </div>
+      <div class="card svc-card">
+        <div class="icon-badge bg-c"><svg viewBox="0 0 48 48"><use href="#ic-ruler"/></svg></div>
+        <h4>Projetos de engenharia</h4>
+        <p>Projetos estruturais, hidrossanitários e outros compatíveis com a equipe.</p>
+        <span class="how">Equipe interna ou projetistas</span>
+      </div>
+      <div class="card svc-card">
+        <div class="icon-badge bg-p"><svg viewBox="0 0 48 48"><use href="#ic-compass"/></svg></div>
+        <h4>Projetos arquitetônicos</h4>
+        <p>Layout, organização dos ambientes, fachadas e detalhamento.</p>
+        <span class="how">Arquiteto terceirizado</span>
+      </div>
+      <div class="card svc-card">
+        <div class="icon-badge bg-o"><svg viewBox="0 0 48 48"><use href="#ic-calc"/></svg></div>
+        <h4>Orçamentos</h4>
+        <p>Quantitativos, custos de materiais, mão de obra e despesas indiretas.</p>
+        <span class="how">Setor interno de orçamentos</span>
+      </div>
+      <div class="card svc-card">
+        <div class="icon-badge bg-c"><svg viewBox="0 0 48 48"><use href="#ic-calendar"/></svg></div>
+        <h4>Planejamento de obras</h4>
+        <p>Cronograma, sequência executiva e previsão de compras e equipes.</p>
+        <span class="how">Setor interno de planejamento</span>
+      </div>
+    </div>
+
+    <div style="margin-top:16px; max-width:360px;">
+      <div class="card svc-card">
+        <div class="icon-badge bg-p"><svg viewBox="0 0 48 48"><use href="#ic-gauge"/></svg></div>
+        <h4>Gerenciamento de obras</h4>
+        <p>Acompanhamento de custos, prazos, qualidade, fornecedores e execução.</p>
+        <span class="how">Gestores da construtora</span>
+      </div>
+    </div>
+
+    <div class="out-table">
+      <h3>Serviços terceirizados</h3>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Profissional / empresa</th><th>Serviço contratado</th><th>Acompanhamento</th></tr>
+        <tr><td><strong>Arquiteto</strong></td><td>Projetos arquitetônicos, fachadas, interiores e detalhamentos.</td><td>Alex Italo</td></tr>
+        <tr><td><strong>Projetistas especializados</strong></td><td>Projetos complementares que exijam especialidade adicional.</td><td>Alex Italo</td></tr>
+        <tr><td><strong>Eletricistas</strong></td><td>Execução das instalações elétricas.</td><td>Ronald Oliveira</td></tr>
+        <tr><td><strong>Encanadores</strong></td><td>Execução das instalações hidrossanitárias.</td><td>Ronald Oliveira</td></tr>
+        <tr><td><strong>Pintores, gesseiros, instaladores</strong></td><td>Acabamentos específicos.</td><td>Ronald Oliveira e Jhonatan Carvalho</td></tr>
+        <tr><td><strong>Topografia</strong></td><td>Levantamentos e serviços de locação.</td><td>Alex e Ronald Oliveira</td></tr>
+        <tr><td><strong>Laboratório especializado</strong></td><td>Ensaios e controle tecnológico da obra.</td><td>Jhonatan Carvalho</td></tr>
+        <tr><td><strong>Contabilidade</strong></td><td>Apoio contábil, fiscal e de folha de pagamento.</td><td>Emily Garcia</td></tr>
+        <tr><td><strong>Assessoria jurídica</strong></td><td>Análise de contratos e questões jurídicas.</td><td>Tenório e Emily Garcia</td></tr>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO TRABALHAMOS ============ -->
+<section class="sec sec-alt" id="processo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="code">04 — Fluxo</span>
+        <h2>Do primeiro contato à entrega</h2>
+      </div>
+      <p class="sec-note">Quando o contrato é apenas de projeto ou orçamento, o fluxo termina na revisão, aprovação e entrega desse serviço.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item"><span class="tl-num">01</span><div class="tl-body"><h4>Atendimento</h4><p>Entender o serviço desejado, as necessidades do cliente e o investimento disponível.</p></div></div>
+      <div class="tl-item"><span class="tl-num">02</span><div class="tl-body"><h4>Visita e levantamento</h4><p>Registrar medidas, condições do local e informações necessárias à proposta.</p></div></div>
+      <div class="tl-item"><span class="tl-num">03</span><div class="tl-body"><h4>Proposta comercial</h4><p>Definir escopo, entregas, preço, prazo e condições de pagamento.</p></div></div>
+      <div class="tl-item"><span class="tl-num">04</span><div class="tl-body"><h4>Contratação</h4><p>Formalizar o serviço e as responsabilidades das partes.</p></div></div>
+      <div class="tl-item"><span class="tl-num">05</span><div class="tl-body"><h4>Projetos</h4><p>Desenvolver e compatibilizar os projetos contratados, com participação do arquiteto quando necessária.</p></div></div>
+      <div class="tl-item"><span class="tl-num">06</span><div class="tl-body"><h4>Orçamento e planejamento</h4><p>Levantar quantitativos, definir custos e programar atividades, equipes e compras.</p></div></div>
+      <div class="tl-item"><span class="tl-num">07</span><div class="tl-body"><h4>Mobilização</h4><p>Organizar canteiro, materiais, equipamentos e trabalhadores.</p></div></div>
+      <div class="tl-item"><span class="tl-num">08</span><div class="tl-body"><h4>Execução e controle</h4><p>Construir, registrar o avanço, inspecionar serviços e acompanhar custos.</p></div></div>
+      <div class="tl-item"><span class="tl-num">09</span><div class="tl-body"><h4>Entrega</h4><p>Realizar vistoria, corrigir pendências e entregar a documentação prevista.</p></div></div>
+      <div class="tl-item"><span class="tl-num">10</span><div class="tl-body"><h4>Pós-obra</h4><p>Receber solicitações e acompanhar a satisfação do cliente.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GESTÃO E DIFERENCIAIS ============ -->
+<section class="sec" id="gestao">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="code">05 — Diferencial competitivo</span>
+        <h2>Gestão como diferencial</h2>
+      </div>
+      <p class="sec-note">Como a organização interna da construtora melhora o serviço entregue ao cliente.</p>
+    </div>
+
+    <div class="strategy-grid">
+      <div class="card strat-card">
+        <div class="icon-badge bg-p"><svg viewBox="0 0 48 48"><use href="#ic-doc"/></svg></div>
+        <div><h4>Integração entre projeto, orçamento e obra</h4><p>Os setores revisam as soluções antes da execução, aumentando a compatibilidade entre o projetado, o contratado e o construído.</p></div>
+      </div>
+      <div class="card strat-card">
+        <div class="icon-badge bg-o"><svg viewBox="0 0 48 48"><use href="#ic-calendar"/></svg></div>
+        <div><h4>Planejamento das atividades</h4><p>Programação de equipes, materiais e terceirizados reduz esperas e atrasos evitáveis.</p></div>
+      </div>
+      <div class="card strat-card">
+        <div class="icon-badge bg-c"><svg viewBox="0 0 48 48"><use href="#ic-coin"/></svg></div>
+        <div><h4>Transparência financeira</h4><p>Orçamentos claros e relatórios periódicos mantêm o cliente informado sobre custos e alterações.</p></div>
+      </div>
+      <div class="card strat-card">
+        <div class="icon-badge bg-p"><svg viewBox="0 0 48 48"><use href="#ic-people"/></svg></div>
+        <div><h4>Terceirização especializada</h4><p>Contratação de arquitetos e outros especialistas conforme a necessidade dá acesso a conhecimentos específicos.</p></div>
+      </div>
+      <div class="card strat-card">
+        <div class="icon-badge bg-o"><svg viewBox="0 0 48 48"><use href="#ic-shield"/></svg></div>
+        <div><h4>Controle de qualidade</h4><p>Inspeções e correções documentadas reduzem o retrabalho.</p></div>
+      </div>
+      <div class="card strat-card">
+        <div class="icon-badge bg-c"><svg viewBox="0 0 48 48"><use href="#ic-gauge"/></svg></div>
+        <div><h4>Uso de tecnologia</h4><p>Modelagem BIM, cronogramas e registros digitais melhoram a comunicação e o controle das informações.</p></div>
+      </div>
+    </div>
+
+    <div class="kpi-wrap">
+      <h3>Metas de desempenho</h3>
+      <div class="kpi-grid">
+        <div class="card kpi-card"><div class="val">90%</div><div class="lab">Etapas concluídas no prazo planejado</div></div>
+        <div class="card kpi-card"><div class="val">≤5%</div><div class="lab">Desvio do custo final sobre o orçamento aprovado</div></div>
+        <div class="card kpi-card"><div class="val">≤2%</div><div class="lab">Custo de retrabalho sobre o custo de execução</div></div>
+        <div class="card kpi-card"><div class="val">9/10</div><div class="lab">Satisfação média dos clientes</div></div>
+        <div class="card kpi-card"><div class="val">95%</div><div class="lab">Entregas de fornecedores no prazo</div></div>
+        <div class="card kpi-card"><div class="val">100%</div><div class="lab">Trabalhadores integrados antes de iniciar os serviços</div></div>
+        <div class="card kpi-card"><div class="val">100%</div><div class="lab">Inspeções previstas realizadas</div></div>
+        <div class="card kpi-card"><div class="val">Mensal</div><div class="lab">Frequência de acompanhamento dos indicadores</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPLANTAÇÃO ============ -->
+<section class="sec sec-alt" id="implantacao">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="code">06 — Simulação financeira</span>
+        <h2>Investimento e implantação</h2>
+      </div>
+      <p class="sec-note">Simulação acadêmica com investimento inicial de R$ 400.000.</p>
+    </div>
+
+    <div class="impl-grid">
+      <div>
+        <h3 style="font-size:1.1rem; color:var(--purple-900); margin-bottom:18px;">Destinação do investimento</h3>
+        <div class="budget-item"><span>Capital de giro</span><div class="budget-track"><div class="budget-fill" style="width:60%"></div></div><span class="budget-val">R$ 240.000</span></div>
+        <div class="budget-item"><span>Ferramentas e equip.</span><div class="budget-track"><div class="budget-fill" style="width:12.5%"></div></div><span class="budget-val">R$ 50.000</span></div>
+        <div class="budget-item"><span>Computadores/softwares</span><div class="budget-track"><div class="budget-fill" style="width:11.25%"></div></div><span class="budget-val">R$ 45.000</span></div>
+        <div class="budget-item"><span>Escritório e mobiliário</span><div class="budget-track"><div class="budget-fill" style="width:8.75%"></div></div><span class="budget-val">R$ 35.000</span></div>
+        <div class="budget-item"><span>Segurança e canteiros</span><div class="budget-track"><div class="budget-fill" style="width:5%"></div></div><span class="budget-val">R$ 20.000</span></div>
+        <div class="budget-item"><span>Identidade e divulgação</span><div class="budget-track"><div class="budget-fill" style="width:2.5%"></div></div><span class="budget-val">R$ 10.000</span></div>
+        <div class="budget-total"><span>Total</span><span>R$ 400.000</span></div>
+      </div>
+
+      <div>
+        <h3 style="font-size:1.1rem; color:var(--purple-900); margin-bottom:6px;">Cronograma de abertura</h3>
+        <div class="phase-list">
+          <div class="phase">
+            <span class="mono">MÊS 1</span>
+            <div><h4>Estruturação</h4><p>Definir identidade, serviços, estrutura administrativa, planejamento financeiro e formalização/registro.</p></div>
+          </div>
+          <div class="phase">
+            <span class="mono">MÊS 2</span>
+            <div><h4>Organização</h4><p>Organizar escritório, contratar equipe inicial, selecionar parceiros e elaborar procedimentos internos.</p></div>
+          </div>
+          <div class="phase">
+            <span class="mono">MÊS 3</span>
+            <div><h4>Lançamento</h4><p>Divulgar a construtora, apresentar propostas e iniciar a mobilização dos contratos fechados.</p></div>
+          </div>
+        </div>
+        <p style="margin-top:16px; font-size:0.84rem; color:var(--ink-soft);"><strong style="color:var(--ink);">Principais riscos:</strong> atrasos de materiais, mudanças de projeto, chuvas e falta de caixa — mitigados com fornecedores alternativos, planejamento, aprovação formal de alterações e acompanhamento financeiro semanal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJETOS DEMONSTRATIVOS ============ -->
+<section class="sec" id="projetos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="code">07 — Exemplos</span>
+        <h2>Projetos demonstrativos</h2>
+      </div>
+      <p class="sec-note">Modalidades de obra atendidas pela construtora, representadas de forma ilustrativa.</p>
+    </div>
+
+    <div class="demo-grid">
+      <div class="card demo-card">
+        <div class="demo-art">
+          <svg viewBox="0 0 400 210" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="skyHome" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#8B7BC7"/>
+                <stop offset="100%" stop-color="#29B6E8"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="210" fill="url(#skyHome)"/>
+            <circle cx="345" cy="45" r="26" fill="#FFFFFF" opacity="0.85"/>
+            <rect x="0" y="160" width="400" height="50" fill="#F7F6FB"/>
+            <circle cx="60" cy="176" r="20" fill="#1C9BC9" opacity="0.5"/>
+            <rect x="130" y="95" width="150" height="80" fill="#FFFFFF"/>
+            <polygon points="118,95 205,45 292,95" fill="#372581"/>
+            <rect x="148" y="120" width="28" height="28" fill="#29B6E8"/>
+            <line x1="162" y1="120" x2="162" y2="148" stroke="#FFFFFF" stroke-width="2"/>
+            <line x1="148" y1="134" x2="176" y2="134" stroke="#FFFFFF" stroke-width="2"/>
+            <rect x="234" y="120" width="28" height="28" fill="#29B6E8"/>
+            <line x1="248" y1="120" x2="248" y2="148" stroke="#FFFFFF" stroke-width="2"/>
+            <line x1="234" y1="134" x2="262" y2="134" stroke="#FFFFFF" stroke-width="2"/>
+            <rect x="192" y="128" width="26" height="47" fill="#F5821F"/>
+            <circle cx="210" cy="152" r="2" fill="#DD6D0E"/>
+            <rect x="122" y="171" width="166" height="6" fill="#372581" opacity="0.35"/>
+          </svg>
+        </div>
+        <div class="demo-body">
+          <span class="mono">Exemplo ilustrativo</span>
+          <h4>Residência unifamiliar</h4>
+          <p>Construção completa, do projeto arquitetônico à entrega das chaves.</p>
+        </div>
+      </div>
+
+      <div class="card demo-card">
+        <div class="demo-art">
+          <svg viewBox="0 0 400 210" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="skyShop" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#372581"/>
+                <stop offset="100%" stop-color="#5A3FA6"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="210" fill="url(#skyShop)"/>
+            <rect x="0" y="168" width="400" height="42" fill="#F7F6FB"/>
+            <rect x="110" y="90" width="180" height="80" fill="#EFEBFA"/>
+            <rect x="110" y="82" width="180" height="18" fill="#F5821F"/>
+            <polygon points="110,100 130,120 150,100" fill="#DD6D0E"/>
+            <polygon points="150,100 170,120 190,100" fill="#F5821F"/>
+            <polygon points="190,100 210,120 230,100" fill="#DD6D0E"/>
+            <polygon points="230,100 250,120 270,100" fill="#F5821F"/>
+            <polygon points="270,100 290,120 290,100" fill="#DD6D0E"/>
+            <rect x="130" y="126" width="52" height="42" fill="#29B6E8"/>
+            <rect x="220" y="126" width="46" height="42" fill="#372581"/>
+            <rect x="230" y="140" width="26" height="28" fill="#F7F6FB"/>
+            <!-- escada -->
+            <line x1="300" y1="168" x2="330" y2="96" stroke="#5B5578" stroke-width="4"/>
+            <line x1="312" y1="168" x2="342" y2="96" stroke="#5B5578" stroke-width="4"/>
+            <line x1="303" y1="150" x2="333" y2="146" stroke="#5B5578" stroke-width="4"/>
+            <line x1="306" y1="130" x2="336" y2="126" stroke="#5B5578" stroke-width="4"/>
+            <line x1="309" y1="110" x2="339" y2="106" stroke="#5B5578" stroke-width="4"/>
+            <!-- rolo de pintura -->
+            <rect x="70" y="140" width="10" height="34" fill="#DD6D0E"/>
+            <rect x="58" y="126" width="34" height="14" rx="6" fill="#29B6E8"/>
+          </svg>
+        </div>
+        <div class="demo-body">
+          <span class="mono">Exemplo ilustrativo</span>
+          <h4>Reforma comercial</h4>
+          <p>Adequação de loja existente, com ampliação da área de atendimento.</p>
+        </div>
+      </div>
+
+      <div class="card demo-card">
+        <div class="demo-art">
+          <svg viewBox="0 0 400 210" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="skyProj" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#29B6E8"/>
+                <stop offset="100%" stop-color="#372581"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="210" fill="url(#skyProj)"/>
+            <rect x="60" y="120" width="280" height="16" fill="#DD6D0E"/>
+            <rect x="60" y="136" width="280" height="46" fill="#EFEBFA"/>
+            <!-- planta desenhada -->
+            <rect x="90" y="150" width="90" height="60" fill="none" stroke="#372581" stroke-width="3"/>
+            <line x1="90" y1="175" x2="180" y2="175" stroke="#372581" stroke-width="2"/>
+            <line x1="130" y1="150" x2="130" y2="210" stroke="#372581" stroke-width="2"/>
+            <!-- rolo de planta -->
+            <rect x="200" y="150" width="120" height="14" rx="7" fill="#FFFFFF"/>
+            <circle cx="200" cy="157" r="9" fill="#FFFFFF"/>
+            <line x1="215" y1="157" x2="305" y2="157" stroke="#29B6E8" stroke-width="2"/>
+            <!-- regua -->
+            <polygon points="230,60 300,60 265,110" fill="none" stroke="#F5821F" stroke-width="4" stroke-linejoin="round"/>
+            <!-- lapis -->
+            <rect x="90" y="60" width="14" height="60" fill="#F5821F" transform="rotate(18 97 90)"/>
+            <polygon points="90,58 104,58 97,44" fill="#DD6D0E" transform="rotate(18 97 90)"/>
+          </svg>
+        </div>
+        <div class="demo-body">
+          <span class="mono">Exemplo ilustrativo</span>
+          <h4>Projeto sob demanda</h4>
+          <p>Elaboração de projeto e orçamento isolados, sem execução da obra.</p>
+        </div>
+      </div>
+    </div>
+    <div class="disclaimer">Este site foi desenvolvido como <strong>trabalho acadêmico</strong>, para fins de estudo em gestão e engenharia.</div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<footer class="contact" id="contato">
+  <svg class="contact-deco" viewBox="0 0 46 54">
+    <use href="#ic-ribbon" fill="#F5821F" transform="translate(0,0)"/>
+    <use href="#ic-ribbon" fill="#5A3FA6" transform="translate(9,16)"/>
+    <use href="#ic-ribbon" fill="#29B6E8" transform="translate(18,32)"/>
+  </svg>
+  <div class="wrap" style="padding-top:74px; padding-bottom:26px;">
+    <div class="contact-grid">
+      <div>
+        <span class="code" style="color:var(--cyan);">08 — Contato</span>
+        <h2>Fale com a EngeMax</h2>
+        <p style="color:#C7BFE3; max-width:44ch; margin-top:12px;">Informações demonstrativas, apresentadas para fins da atividade escolar.</p>
+        <ul class="contact-list">
+          <li><span class="mono">Sede</span><span>Tucuruí — Pará, Brasil</span></li>
+          <li><span class="mono">Atendimento</span><span>Residencial, comercial e projetos isolados</span></li>
+          <li><span class="mono">Responsável</span><span>Victor Tenório — Proprietário e diretor-geral</span></li>
+        </ul>
+      </div>
+      <div class="credits">
+        <h4>Sobre este trabalho</h4>
+        <ul>
+          <li>Estrutura organizacional, serviços e valores financeiros simulados.</li>
+          <li>Organização de conteúdo baseada no Google Sites da atividade.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <footer class="legal">
+      <span>© EngeMax — uso exclusivamente acadêmico.</span>
+      <span class="mono">Tucuruí — PA</span>
+    </footer>
+  </div>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const links = document.querySelectorAll('.navlinks a');
+  const spy = () => {
+    let current = '';
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= 120 && rect.bottom > 120) current = sec.id;
+    });
+    links.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  };
+  document.addEventListener('scroll', spy, { passive: true });
+  spy();
+</script>
+
+</body>
+</html>
